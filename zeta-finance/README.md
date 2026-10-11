@@ -26,7 +26,7 @@ cp .env.example .env.local
 | `NEXT_PUBLIC_MP_PLANILLA_INDEPENDIENTES` | Link de Mercado Pago de Ingresos para profesionales independientes. |
 | `NEXT_PUBLIC_MP_PLANILLA_COMBO` | Link de Mercado Pago del combo. |
 
-Los tres links de pago se pegan en `src/lib/planillas.ts` (`MERCADO_PAGO_PLANILLA_PERSONALES`, `MERCADO_PAGO_PLANILLA_INDEPENDIENTES`, `MERCADO_PAGO_PLANILLA_COMBO`). Mientras la URL contenga `PLACEHOLDER`, el botón Comprar abre WhatsApp con el pedido escrito. La página dice que la entrega es por mail.
+Los tres links de pago están en `src/lib/planillas.ts` (`MERCADO_PAGO_PLANILLA_PERSONALES`, `MERCADO_PAGO_PLANILLA_INDEPENDIENTES`, `MERCADO_PAGO_PLANILLA_COMBO`). Si una URL de reemplazo contiene `PLACEHOLDER`, el botón Comprar abre WhatsApp con el pedido escrito. La página dice que la entrega es por mail.
 
 ## Desarrollo
 

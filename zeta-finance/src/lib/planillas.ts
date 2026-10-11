@@ -3,16 +3,15 @@ import { whatsappLink } from "@/lib/constants";
 /**
  * Links de pago de Mercado Pago.
  *
- * Pegá cada URL real en la constante de abajo (reemplazá el texto PLACEHOLDER).
- * Si preferís variables de entorno, estas pisan la constante:
+ * Los tres checkouts están en las constantes de abajo.
+ * Si hace falta cambiarlos sin tocar el código, estas env vars pisan la constante:
  *
  *   NEXT_PUBLIC_MP_PLANILLA_PERSONALES
  *   NEXT_PUBLIC_MP_PLANILLA_INDEPENDIENTES
  *   NEXT_PUBLIC_MP_PLANILLA_COMBO
  *
- * Mientras la URL contenga "PLACEHOLDER", el botón Comprar abre WhatsApp
- * con el pedido escrito. Eso es solo el reemplazo del link de pago:
- * la página dice que la planilla y la guía llegan por mail.
+ * Si una URL contiene "PLACEHOLDER", el botón Comprar abre WhatsApp
+ * con el pedido escrito. Con los links reales, Comprar abre Mercado Pago.
  * El botón "Consultar por WhatsApp" no cambia.
  */
 function paymentUrl(envValue: string | undefined, fallback: string) {
@@ -22,17 +21,17 @@ function paymentUrl(envValue: string | undefined, fallback: string) {
 
 export const MERCADO_PAGO_PLANILLA_PERSONALES = paymentUrl(
   process.env.NEXT_PUBLIC_MP_PLANILLA_PERSONALES,
-  "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=PLACEHOLDER_PERSONALES",
+  "https://mpago.la/1zwoFZM",
 );
 
 export const MERCADO_PAGO_PLANILLA_INDEPENDIENTES = paymentUrl(
   process.env.NEXT_PUBLIC_MP_PLANILLA_INDEPENDIENTES,
-  "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=PLACEHOLDER_INDEPENDIENTES",
+  "https://mpago.la/2S7jdGy",
 );
 
 export const MERCADO_PAGO_PLANILLA_COMBO = paymentUrl(
   process.env.NEXT_PUBLIC_MP_PLANILLA_COMBO,
-  "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=PLACEHOLDER_COMBO",
+  "https://mpago.la/1N62aNP",
 );
 
 export const PLANILLA_LEGAL =
