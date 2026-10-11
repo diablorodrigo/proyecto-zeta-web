@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
-import { WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/constants";
+import {
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_URL,
+} from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 function WhatsAppIcon() {
@@ -55,7 +60,15 @@ export function HomeHero() {
             </Link>
           </div>
           <p className="mt-5 text-sm text-muted-foreground">
-            Respuesta en menos de 24 horas laborables.
+            Respuesta en menos de 24 horas laborables.{" "}
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary hover:underline"
+            >
+              Instagram {INSTAGRAM_HANDLE}
+            </a>
           </p>
         </div>
 

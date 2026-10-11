@@ -1,15 +1,32 @@
 export const WHATSAPP_URL =
   process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/5493496462977";
 
-export const WHATSAPP_DISPLAY = "+54 3496-462977";
+export const WHATSAPP_DISPLAY = "+54 9 3496-462977";
 
 export const CONTACT_EMAIL =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hola@zetafinance.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "zeta_finance@yahoo.com";
+
+export const INSTAGRAM_HANDLE = "@cristianbernaldez.ok";
+
+export const INSTAGRAM_URL = "https://www.instagram.com/cristianbernaldez.ok";
+
+export const LOCATION_LABEL = "Salta, Argentina";
+
+export function whatsappLink(message?: string) {
+  try {
+    const url = new URL(WHATSAPP_URL);
+    if (message) url.searchParams.set("text", message);
+    return url.toString();
+  } catch {
+    return WHATSAPP_URL;
+  }
+}
 
 export const NAV_LINKS = [
   { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
   { href: "/simulador", label: "Simulador" },
+  { href: "/planillas", label: "Planillas" },
   { href: "/sobre-mi", label: "Sobre mí" },
   { href: "/contacto", label: "Contacto" },
 ] as const;

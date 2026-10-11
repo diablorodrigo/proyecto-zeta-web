@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   CONTACT_EMAIL,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  LOCATION_LABEL,
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
 } from "@/lib/constants";
@@ -36,6 +39,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/planillas" className="hover:text-foreground">
+                Planillas
+              </Link>
+            </li>
+            <li>
               <Link href="/sobre-mi" className="hover:text-foreground">
                 Sobre mí
               </Link>
@@ -52,15 +60,6 @@ export function SiteFooter() {
           <h2 className="text-sm font-semibold">Contacto</h2>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
             <li>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="hover:text-foreground"
-              >
-                {CONTACT_EMAIL}
-              </a>
-            </li>
-            <li>Buenos Aires, Argentina</li>
-            <li>
               <Link
                 href={WHATSAPP_URL}
                 target="_blank"
@@ -70,6 +69,25 @@ export function SiteFooter() {
                 WhatsApp {WHATSAPP_DISPLAY}
               </Link>
             </li>
+            <li>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-primary hover:underline"
+              >
+                Instagram {INSTAGRAM_HANDLE}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="hover:text-foreground"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </li>
+            <li>{LOCATION_LABEL}</li>
           </ul>
         </div>
       </div>
