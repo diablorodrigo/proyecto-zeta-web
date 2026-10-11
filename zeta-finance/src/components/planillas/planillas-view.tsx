@@ -80,7 +80,7 @@ export function PlanillasView() {
           className="scroll-mt-24 border-b border-border/70"
         >
           <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-            <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-x-12">
+            <div className="grid min-w-0 gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-x-12">
               <div>
                 <p className="text-sm font-semibold text-primary">
                   Pago único · {product.priceLabel}
@@ -93,8 +93,8 @@ export function PlanillasView() {
                 </p>
               </div>
 
-              <figure className="lg:row-span-2">
-                <div className="overflow-x-auto rounded-2xl border border-border bg-card shadow-[0_18px_40px_rgba(30,58,52,0.08)]">
+              <figure className="min-w-0 lg:row-span-2">
+                <div className="max-w-full overflow-x-auto overscroll-x-contain rounded-2xl border border-border bg-card shadow-[0_18px_40px_rgba(30,58,52,0.08)]">
                   <Image
                     src={product.image}
                     alt={product.imageAlt}

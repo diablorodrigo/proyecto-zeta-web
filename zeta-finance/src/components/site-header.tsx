@@ -38,7 +38,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Principal">
           {NAV_LINKS.map((link) => {
             const active =
               link.href === "/"
@@ -61,7 +61,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Link
             href="/contacto"
             className={cn(
@@ -75,7 +75,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground lg:hidden"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
           onClick={() => setOpenPath(open ? null : pathname)}
@@ -85,7 +85,7 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <div className="border-t border-border/70 bg-background md:hidden animate-fade-in">
+        <div className="border-t border-border/70 bg-background lg:hidden animate-fade-in">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4" aria-label="Móvil">
             {NAV_LINKS.map((link) => (
               <Link

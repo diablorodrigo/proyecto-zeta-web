@@ -28,7 +28,7 @@ export function BuyActions({
   const ready = isMercadoPagoReady(id);
 
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+    <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
       <Link
         href={planillaBuyHref(id)}
         target="_blank"
@@ -41,6 +41,7 @@ export function BuyActions({
         }
         className={cn(
           buttonVariants({ size: "lg" }),
+          "w-full sm:w-auto",
           onDark
             ? "bg-background text-foreground hover:bg-background/90"
             : "bg-primary text-primary-foreground hover:bg-primary/90",
@@ -54,6 +55,7 @@ export function BuyActions({
         rel="noopener noreferrer"
         className={cn(
           buttonVariants({ variant: "outline", size: "lg" }),
+          "w-full sm:w-auto",
           onDark
             ? "border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
             : "border-primary/30 bg-background text-foreground",
