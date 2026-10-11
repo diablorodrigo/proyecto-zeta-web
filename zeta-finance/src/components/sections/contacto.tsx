@@ -9,6 +9,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { buttonVariants } from "@/components/ui/button";
 import {
   CONTACT_EMAIL,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  LOCATION_LABEL,
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
 } from "@/lib/constants";
@@ -210,13 +213,23 @@ export function ContactForm() {
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <a
-                href={`mailto:${CONTACT_EMAIL}`}
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-medium text-primary hover:underline"
+              >
+                Instagram {INSTAGRAM_HANDLE}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="text-muted-foreground hover:text-foreground"
               >
                 {CONTACT_EMAIL}
               </a>
             </li>
-            <li className="text-muted-foreground">Buenos Aires, Argentina</li>
+            <li className="text-muted-foreground">{LOCATION_LABEL}</li>
             <li className="text-muted-foreground">
               Horario de respuesta: lunes a viernes, de 9 a 18 h.
             </li>

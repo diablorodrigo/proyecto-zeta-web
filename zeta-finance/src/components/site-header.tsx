@@ -11,11 +11,8 @@ import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  const [openPath, setOpenPath] = useState<string | null>(null);
+  const open = openPath === pathname;
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -41,7 +38,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Principal">
           {NAV_LINKS.map((link) => {
             const active =
               link.href === "/"
@@ -64,7 +61,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Link
             href="/contacto"
             className={cn(
@@ -78,17 +75,17 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground lg:hidden"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpenPath(open ? null : pathname)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open ? (
-        <div className="border-t border-border/70 bg-background md:hidden animate-fade-in">
+        <div className="border-t border-border/70 bg-background lg:hidden animate-fade-in">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4" aria-label="Móvil">
             {NAV_LINKS.map((link) => (
               <Link
