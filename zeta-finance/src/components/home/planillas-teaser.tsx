@@ -17,8 +17,8 @@ export function HomePlanillasTeaser() {
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
               Finanzas personales en pesos y dólares ($ 6.900) e ingresos para
-              profesionales independientes ($ 9.900). Pago único. De regalo, la
-              guía PDF de tu profesión.
+              profesionales independientes ($ 9.900). Pago único y seguro con
+              Mercado Pago. Te llegan por mail, con la guía PDF de tu profesión.
             </p>
           </div>
           <Link

@@ -4,7 +4,7 @@ import { PLANILLA_COMBO, PLANILLA_PRODUCTS } from "@/lib/planillas";
 
 const title = "Planillas de finanzas en pesos y dólares | Zeta Finance";
 const description =
-  "Planillas de Excel para ordenar tus finanzas personales en pesos y dólares o tus ingresos como profesional independiente. Pago único desde $ 6.900, con guía PDF de regalo. Funcionan en Excel, Google Sheets y el celular.";
+  "Planillas de Excel para ordenar tus finanzas personales en pesos y dólares o tus ingresos como profesional independiente. Pago único y seguro con Mercado Pago, desde $ 6.900. Te llegan por mail, con guía PDF de regalo.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zeta-finance.vercel.app"),

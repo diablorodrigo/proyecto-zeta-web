@@ -36,8 +36,8 @@ export function BuyActions({
         data-checkout={ready ? "mercadopago" : "whatsapp"}
         title={
           ready
-            ? "Pagar con Mercado Pago"
-            : "Te abre WhatsApp con el pedido escrito"
+            ? "Pago seguro con Mercado Pago"
+            : "Comprar"
         }
         className={cn(
           buttonVariants({ size: "lg" }),

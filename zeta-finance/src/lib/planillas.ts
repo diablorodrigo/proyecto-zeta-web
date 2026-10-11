@@ -11,7 +11,9 @@ import { whatsappLink } from "@/lib/constants";
  *   NEXT_PUBLIC_MP_PLANILLA_COMBO
  *
  * Mientras la URL contenga "PLACEHOLDER", el botón Comprar abre WhatsApp
- * con un mensaje ya escrito. El botón "Consultar por WhatsApp" no cambia.
+ * con el pedido escrito. Eso es solo el reemplazo del link de pago:
+ * la página dice que la planilla y la guía llegan por mail.
+ * El botón "Consultar por WhatsApp" no cambia.
  */
 function paymentUrl(envValue: string | undefined, fallback: string) {
   const value = envValue?.trim();
@@ -37,7 +39,13 @@ export const PLANILLA_LEGAL =
   "Herramienta de organización personal. No constituye asesoramiento financiero personalizado ni recomendación de inversión.";
 
 export const PLANILLA_GIFT =
-  "De regalo: la guía PDF de finanzas para tu profesión (médicos, abogados, contadores, ingenieros o RR.HH.). Después de la compra te pregunto a qué te dedicás y te mando la que corresponde.";
+  "De regalo: la guía PDF de finanzas para tu profesión (médicos, abogados, contadores, ingenieros o RR.HH.). Te llega por mail junto con la planilla. Si tu profesión no está en la lista, elegí la que más se parezca a tu forma de cobrar.";
+
+export const PLANILLA_DELIVERY =
+  "Pagás con Mercado Pago y te llega todo por mail: el Excel con el ejemplo, la versión en blanco, un link para tu copia en Google Sheets y la guía PDF de regalo.";
+
+export const PLANILLA_MP_PROTECTION =
+  "Pago seguro con Mercado Pago, con la protección al comprador.";
 
 export type PlanillaPaymentId = "personales" | "independientes" | "combo";
 
@@ -190,7 +198,7 @@ export const PLANILLA_COMBO = {
 export const PLANILLA_FAQ = [
   {
     q: "¿Cómo la recibo?",
-    a: "Pagás con Mercado Pago y te mando la planilla por WhatsApp: el archivo Excel con el ejemplo, la versión en blanco y un link para hacerte tu copia en Google Sheets. Es un pago único, sin suscripción.",
+    a: "Pagás con Mercado Pago y te llega todo por mail: el archivo Excel con el ejemplo, la versión en blanco, un link para hacerte tu copia en Google Sheets y la guía PDF de regalo. Es un pago único, sin suscripción. El pago es seguro con Mercado Pago y cuenta con la protección al comprador.",
   },
   {
     q: "¿Funciona en Google Sheets?",
@@ -202,7 +210,7 @@ export const PLANILLA_FAQ = [
   },
   {
     q: "¿Qué es la guía de regalo?",
-    a: "Una guía PDF de 6 páginas con pasos concretos para ordenar las finanzas según tu profesión: médicos, abogados, contadores, ingenieros o RR.HH. Te la mando gratis junto con la planilla. Si tu profesión no está en la lista, elegí la que más se parezca a tu forma de cobrar.",
+    a: "Una guía PDF de 6 páginas con pasos concretos para ordenar las finanzas según tu profesión: médicos, abogados, contadores, ingenieros o RR.HH. Te llega gratis por mail junto con la planilla. Si tu profesión no está en la lista, elegí la que más se parezca a tu forma de cobrar.",
   },
   {
     q: "¿Tengo que tocar fórmulas?",
@@ -230,6 +238,6 @@ export const PLANILLA_FAQ = [
   },
   {
     q: "¿Y si tengo una duda?",
-    a: "Cualquier duda, escribime directamente por WhatsApp. Sin charlas agendadas y sin seguimiento comercial.",
+    a: "Cualquier duda, escribime. Si querés consultar antes de comprar, podés escribirme por WhatsApp. La planilla y la guía te llegan por mail después del pago.",
   },
 ] as const;

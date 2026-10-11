@@ -13,8 +13,10 @@ import {
 } from "@/lib/constants";
 import {
   PLANILLA_COMBO,
+  PLANILLA_DELIVERY,
   PLANILLA_GIFT,
   PLANILLA_LEGAL,
+  PLANILLA_MP_PROTECTION,
   PLANILLA_PRODUCTS,
 } from "@/lib/planillas";
 
@@ -29,8 +31,12 @@ export function PlanillasView() {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             Dos archivos de Excel para usar en la compu o en el celular. Pagás
-            una vez. Te los mando por WhatsApp, con el ejemplo, la versión en
-            blanco y un link para tu copia en Google Sheets.
+            una vez con Mercado Pago y te llegan por mail: el ejemplo, la
+            versión en blanco, un link para tu copia en Google Sheets y la guía
+            PDF de regalo.
+          </p>
+          <p className="mt-3 text-sm font-medium text-foreground">
+            {PLANILLA_MP_PROTECTION}
           </p>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
             Cristian Bernaldez, asesor financiero matriculado por CNV.{" "}
@@ -113,7 +119,10 @@ export function PlanillasView() {
 
               <div>
                 <BuyActions id={product.id} priceLabel={product.priceLabel} />
-                <p className="mt-4 max-w-xl text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                  {PLANILLA_DELIVERY} {PLANILLA_MP_PROTECTION}
+                </p>
+                <p className="mt-3 max-w-xl text-xs leading-relaxed text-muted-foreground">
                   {PLANILLA_LEGAL}
                 </p>
               </div>
@@ -183,7 +192,11 @@ export function PlanillasView() {
               {PLANILLA_COMBO.priceLabel}
             </p>
             <p className="mt-1 text-sm text-primary-foreground/75">
-              Pago único, sin suscripción. Incluye la guía PDF de tu profesión.
+              Pago único, sin suscripción. Después de pagar, las dos planillas
+              y la guía PDF te llegan por mail.
+            </p>
+            <p className="mt-2 text-sm font-medium text-primary-foreground">
+              {PLANILLA_MP_PROTECTION}
             </p>
             <div className="mt-6">
               <BuyActions
@@ -213,8 +226,8 @@ export function PlanillasView() {
               Cualquier duda, escribime
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              WhatsApp e Instagram son la vía más directa. También podés
-              escribir al mail.
+              La planilla y la guía te llegan por mail después del pago. Si
+              querés consultar antes, escribinos por WhatsApp.
             </p>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
@@ -226,7 +239,7 @@ export function PlanillasView() {
                   rel="noopener noreferrer"
                   className="font-medium text-primary hover:underline"
                 >
-                  WhatsApp {WHATSAPP_DISPLAY}
+                  Consultar por WhatsApp {WHATSAPP_DISPLAY}
                 </Link>
               </li>
               <li>
