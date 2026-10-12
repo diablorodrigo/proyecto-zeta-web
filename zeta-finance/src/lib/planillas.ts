@@ -38,7 +38,7 @@ export const PLANILLA_LEGAL =
   "Herramienta de organización personal. No constituye asesoramiento financiero personalizado ni recomendación de inversión.";
 
 export const PLANILLA_GIFT =
-  "De regalo: la guía PDF de finanzas para tu profesión (médicos, abogados, contadores, ingenieros o RR.HH.). Te llega por mail junto con la planilla. Si tu profesión no está en la lista, elegí la que más se parezca a tu forma de cobrar.";
+  "De regalo: la guía PDF de finanzas para tu profesión (médicos, abogados, contadores, ingenieros, RR.HH. o emprendedores). Te llega por mail junto con la planilla. Si tu profesión no está, pedila y te armamos una guía pensada para tu actividad.";
 
 export const PLANILLA_DELIVERY =
   "Pagás con Mercado Pago y te llega todo por mail: el Excel con el ejemplo, la versión en blanco, un link para tu copia en Google Sheets y la guía PDF de regalo.";
@@ -209,7 +209,7 @@ export const PLANILLA_FAQ = [
   },
   {
     q: "¿Qué es la guía de regalo?",
-    a: "Una guía PDF de 6 páginas con pasos concretos para ordenar las finanzas según tu profesión: médicos, abogados, contadores, ingenieros o RR.HH. Te llega gratis por mail junto con la planilla. Si tu profesión no está en la lista, elegí la que más se parezca a tu forma de cobrar.",
+    a: "Una guía PDF de 6 páginas con pasos concretos para ordenar las finanzas según tu profesión: médicos, abogados, contadores, ingenieros, RR.HH. o emprendedores. Te llega gratis por mail junto con la planilla. Si tu profesión no está, pedila y te armamos una guía pensada para tu actividad.",
   },
   {
     q: "¿Tengo que tocar fórmulas?",
