@@ -44,6 +44,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/guias" className="hover:text-foreground">
+                Guías gratis
+              </Link>
+            </li>
+            <li>
               <Link href="/sobre-mi" className="hover:text-foreground">
                 Sobre mí
               </Link>
