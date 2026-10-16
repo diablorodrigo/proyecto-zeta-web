@@ -39,8 +39,8 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link href="/planillas" className="hover:text-foreground">
-                Planillas
+              <Link href="/shop" className="hover:text-foreground">
+                Shop
               </Link>
             </li>
             <li>
