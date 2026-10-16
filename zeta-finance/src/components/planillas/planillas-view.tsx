@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, Gift } from "lucide-react";
 import { BuyActions } from "@/components/planillas/buy-actions";
+import { EbookCard } from "@/components/planillas/ebook-card";
 import { PlanillaFaq } from "@/components/planillas/planilla-faq";
 import {
   CONTACT_EMAIL,
@@ -11,6 +12,7 @@ import {
   WHATSAPP_DISPLAY,
   whatsappLink,
 } from "@/lib/constants";
+import { EBOOK_INVERTIR_SIN_MIEDO } from "@/lib/ebooks";
 import {
   PLANILLA_COMBO,
   PLANILLA_DELIVERY,
@@ -42,8 +44,15 @@ export function PlanillasView() {
             Cristian Bernaldez, asesor financiero matriculado por CNV.{" "}
             {LOCATION_LABEL}.
           </p>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            También está el ebook{" "}
+            <a href="#ebook" className="font-medium text-foreground underline-offset-2 hover:underline">
+              Invertir sin miedo
+            </a>
+            , una guía en PDF. La descarga es inmediata por Hotmart.
+          </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {PLANILLA_PRODUCTS.map((product) => (
               <a
                 key={product.id}
@@ -75,9 +84,25 @@ export function PlanillasView() {
                 Ahorrás {PLANILLA_COMBO.savingsLabel}
               </p>
             </a>
+            <a
+              href={`#${EBOOK_INVERTIR_SIN_MIEDO.id}`}
+              className="rounded-2xl border border-border bg-card px-4 py-4 transition-colors hover:border-primary/40"
+            >
+              <p className="text-sm font-medium text-foreground">
+                Invertir sin miedo
+              </p>
+              <p className="mt-2 font-display text-2xl font-bold">
+                {EBOOK_INVERTIR_SIN_MIEDO.priceLabel}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Ebook · descarga inmediata
+              </p>
+            </a>
           </div>
         </div>
       </section>
+
+      <EbookCard />
 
       {PLANILLA_PRODUCTS.map((product) => (
         <section

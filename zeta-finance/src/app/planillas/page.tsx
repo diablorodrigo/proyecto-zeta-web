@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { PlanillasView } from "@/components/planillas/planillas-view";
+import { EBOOK_INVERTIR_SIN_MIEDO } from "@/lib/ebooks";
 import { PLANILLA_COMBO, PLANILLA_PRODUCTS } from "@/lib/planillas";
 
-const title = "Planillas de finanzas en pesos y dólares | Zeta Finance";
+const title = "Planillas y ebook Invertir sin miedo | Zeta Finance";
 const description =
-  "Planillas de Excel para ordenar tus finanzas personales en pesos y dólares o tus ingresos como profesional independiente. Pago único y seguro con Mercado Pago, desde $ 6.900. Te llegan por mail, con guía PDF de regalo.";
+  "Planillas de Excel y el ebook Invertir sin miedo. Pago único con Mercado Pago desde $ 6.900, o la guía en PDF por $ 14.900 con descarga inmediata en Hotmart.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zeta-finance.vercel.app"),
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Planillas Zeta Finance",
+  name: "Shop Zeta Finance",
   itemListElement: [
     ...PLANILLA_PRODUCTS.map((product, index) => ({
       "@type": "ListItem",
@@ -66,6 +67,24 @@ const jsonLd = {
           price: String(PLANILLA_COMBO.priceAmount),
           availability: "https://schema.org/InStock",
           url: "https://zeta-finance.vercel.app/planillas",
+        },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: PLANILLA_PRODUCTS.length + 2,
+      item: {
+        "@type": "Product",
+        name: EBOOK_INVERTIR_SIN_MIEDO.name,
+        description: EBOOK_INVERTIR_SIN_MIEDO.description,
+        image: `https://zeta-finance.vercel.app${EBOOK_INVERTIR_SIN_MIEDO.image}`,
+        brand: { "@type": "Brand", name: "Zeta Finance" },
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "ARS",
+          price: String(EBOOK_INVERTIR_SIN_MIEDO.priceAmount),
+          availability: "https://schema.org/InStock",
+          url: EBOOK_INVERTIR_SIN_MIEDO.buyUrl,
         },
       },
     },
