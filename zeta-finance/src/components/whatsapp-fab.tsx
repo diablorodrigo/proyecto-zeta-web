@@ -1,7 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { WHATSAPP_URL } from "@/lib/constants";
+import { PROYECCION_PATH } from "@/lib/proyeccion/path";
 
 export function WhatsAppFab() {
+  const pathname = usePathname();
+  if (pathname === PROYECCION_PATH) return null;
+
   return (
     <Link
       href={WHATSAPP_URL}
