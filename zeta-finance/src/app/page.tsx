@@ -1,4 +1,5 @@
 import { HomeHero } from "@/components/home/hero";
+import { HomeProyeccionTeaser } from "@/components/home/proyeccion-teaser";
 import { HomeServices } from "@/components/home/services-teaser";
 import { HomeSimulatorTeaser } from "@/components/home/simulator-teaser";
 import { HomePlanillasTeaser } from "@/components/home/planillas-teaser";
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
+      <HomeProyeccionTeaser />
       <HomeServices />
       <HomeSimulatorTeaser />
       <div className="reveal border-b border-border/70 bg-white">

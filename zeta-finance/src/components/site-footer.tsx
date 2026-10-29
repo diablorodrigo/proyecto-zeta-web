@@ -9,11 +9,13 @@ import {
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
 } from "@/lib/constants";
+import { PROYECCION_PATH } from "@/lib/proyeccion/path";
 
 const FOOTER_LINKS = [
   { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
   { href: "/simulador", label: "Simulador" },
+  { href: PROYECCION_PATH, label: "Tu plata quieta" },
   { href: "/shop", label: "Shop" },
   { href: "/guias", label: "Guías gratis" },
   { href: "/sobre-mi", label: "Sobre mí" },

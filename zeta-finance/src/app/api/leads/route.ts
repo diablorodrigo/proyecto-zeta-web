@@ -1,9 +1,17 @@
 import { NextResponse } from "next/server";
 import { forwardLeadToSheets, leadSchema } from "@/lib/leads";
+import { allowRequest, clientIp } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
+  if (!allowRequest(`leads:${clientIp(request)}`, 20, 10 * 60 * 1000)) {
+    return NextResponse.json(
+      { ok: false, error: "Demasiados envíos. Probá de nuevo en unos minutos." },
+      { status: 429 },
+    );
+  }
+
   let body: unknown;
   try {
     body = await request.json();

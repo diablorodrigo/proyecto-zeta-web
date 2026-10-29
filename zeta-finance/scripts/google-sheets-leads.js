@@ -7,6 +7,9 @@
  *
  * Cada fila guarda fecha (horario de Salta), tipo, nombre, teléfono, email,
  * profesión, detalle y mensaje. Las guías llegan con tipo = guia.
+ * La proyección de plata quieta llega con tipo = proyeccion:
+ * el detalle (activos_json) trae ingreso, monto quieto, dólares,
+ * horizonte, mejor opción y supuestos. El mensaje es el resumen.
  */
 var SHEET_NAME = "Leads";
 var TIMEZONE = "America/Argentina/Salta";
