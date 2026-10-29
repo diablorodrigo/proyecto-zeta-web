@@ -18,9 +18,9 @@ test("el plazo fijo promedio toma el último depósito del BCRA entre 15 y 90", 
 });
 
 test("el interés simple no resta impuestos ni comisiones", () => {
-  const resultado = calcPlazoFijoSimple(1_000_000, 30, 19.5);
+  const resultado = calcPlazoFijoSimple(1_000_000, 30, 19);
   assert.ok(resultado.interes != null && resultado.total != null);
-  assert.ok(Math.abs(resultado.interes - 1_000_000 * 0.195 * (30 / 365)) < 1e-6);
+  assert.ok(Math.abs(resultado.interes - 1_000_000 * 0.19 * (30 / 365)) < 1e-6);
   assert.equal(resultado.total, 1_000_000 + resultado.interes);
 });
 

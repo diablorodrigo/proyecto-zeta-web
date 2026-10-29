@@ -12,6 +12,8 @@ import {
   tnaToTem,
   usdProyeccion,
 } from "@/lib/proyeccion/calc";
+import { INFLACION_REM } from "@/lib/proyeccion/config";
+import { PLAZO_FIJO_FALLBACK_TNA } from "@/lib/rates/fallback";
 import { calcPlazoFijoSimple } from "@/lib/rates/plazo-fijo";
 
 test("tnaToTem de un plazo fijo a 30 días es el interés simple del mes", () => {
@@ -71,9 +73,25 @@ test("un instrumento renovado separa el nominal, el real y cuánto le gana a la 
   assert.ok(Math.abs(resultado.pesos - (resultado.real - 1000)) < 1e-8);
 });
 
+test("a 3 meses, $300.000 quietos pierden por inflación y el plazo fijo al 19% queda apenas abajo", () => {
+  const pis = INFLACION_REM.meses.slice(0, 3).map((mes) => mes.tasa);
+  const quieto = perdidaPoderAdquisitivo(300_000, pis, 3);
+  const plazoFijo = resultadoEnHorizonte(
+    300_000,
+    tnaToTem(PLAZO_FIJO_FALLBACK_TNA / 100, 30),
+    pis,
+    3,
+  );
+  assert.equal(PLAZO_FIJO_FALLBACK_TNA, 19);
+  assert.ok(Math.abs(quieto.pesos - 14_793.896) < 0.01);
+  assert.ok(Math.abs(quieto.porcentaje - 0.049312987) < 1e-9);
+  assert.ok(Math.abs(plazoFijo.pesos - -1_222.437) < 0.01);
+  assert.ok(Math.abs(plazoFijo.porcentaje - -0.00407479) < 1e-8);
+});
+
 test("un mes de plazo fijo coincide con el interés simple, sin comisiones", () => {
   const monto = 5_000_000;
-  const tnaPuntos = 19.5;
+  const tnaPuntos = 19;
   const simple = calcPlazoFijoSimple(monto, 30, tnaPuntos);
   const compuesto = proyectarNominal(monto, tnaToTem(tnaPuntos / 100, 30), 1);
   assert.ok(simple.total != null);

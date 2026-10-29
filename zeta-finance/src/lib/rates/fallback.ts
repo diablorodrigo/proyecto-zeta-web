@@ -14,7 +14,14 @@ export const CAUCION_FALLBACK: Record<number, number> = {
   30: 23.5,
 };
 
-export const PLAZO_FIJO_FALLBACK_TNA = 19.5;
+/**
+ * TNA de plazo fijo para una persona común: promedio de bancos, clientes.
+ * No usa la serie BCRA de depósitos a 30 días (queda alta para este público).
+ * Revisado el 29/10/2026. Es un supuesto editable, a confirmar.
+ */
+export const PLAZO_FIJO_FALLBACK_TNA = 19;
+export const PLAZO_FIJO_FUENTE = "Promedio de bancos (clientes), referencia";
+export const PLAZO_FIJO_FECHA = "2026-10-29";
 
 /** Cuotaparte 15/10/2026 → 22/10/2026. TNA 18,28%. */
 export const FCI_FALLBACK = {
