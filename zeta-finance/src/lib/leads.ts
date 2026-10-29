@@ -66,6 +66,41 @@ export const leadSchema = z.discriminatedUnion("tipo", [
     email: z.string().trim().max(160).email(),
     profesion: z.enum(GUIA_SLUGS),
   }),
+  z.object({
+    tipo: z.literal("proyeccion"),
+    nombre: z.string().trim().min(2).max(120),
+    telefono: z.string().trim().min(6).max(40),
+    email: z.union([z.literal(""), z.string().trim().email()]).optional(),
+    ingreso: z.number().finite().min(0).max(1e15),
+    montoQuieto: z.number().finite().min(0).max(1e15),
+    usd: z.number().finite().min(0).max(1e12).optional(),
+    horizonteMeses: z.union([
+      z.literal(1),
+      z.literal(3),
+      z.literal(6),
+      z.literal(12),
+    ]),
+    mejorOpcion: z.string().trim().min(1).max(200),
+    supuestos: z
+      .object({
+        inflacionMensual: z.array(z.number().finite()).max(24),
+        plazoFijoTna: z.number().finite(),
+        moneyMarketTna: z.number().finite(),
+        caucionTna: z.number().finite(),
+        usdTna: z.number().finite(),
+        lecaps: z
+          .array(
+            z.object({
+              ticker: z.string().trim().max(12),
+              tea: z.number().finite(),
+              dias: z.number().finite(),
+            }),
+          )
+          .max(20),
+      })
+      .optional(),
+    mensaje: z.string().trim().max(2000).optional(),
+  }),
 ]);
 
 export type LeadPayload = z.infer<typeof leadSchema>;
@@ -124,7 +159,16 @@ export async function forwardLeadToSheets(
                   profesion: payload.profesion,
                   etiqueta: profesion,
                 })
-              : "",
+              : payload.tipo === "proyeccion"
+                ? JSON.stringify({
+                    ingreso: payload.ingreso,
+                    montoQuieto: payload.montoQuieto,
+                    usd: payload.usd ?? 0,
+                    horizonteMeses: payload.horizonteMeses,
+                    mejorOpcion: payload.mejorOpcion,
+                    supuestos: payload.supuestos ?? null,
+                  })
+                : "",
     mensaje:
       payload.tipo === "guia"
         ? `Guía gratis: ${profesion}`

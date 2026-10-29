@@ -8,6 +8,7 @@ import {
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
 } from "@/lib/constants";
+import { PROYECCION_PATH } from "@/lib/proyeccion/path";
 
 export function SiteFooter() {
   return (
@@ -36,6 +37,11 @@ export function SiteFooter() {
             <li>
               <Link href="/servicios" className="hover:text-foreground">
                 Servicios
+              </Link>
+            </li>
+            <li>
+              <Link href={PROYECCION_PATH} className="hover:text-foreground">
+                Tu plata quieta
               </Link>
             </li>
             <li>

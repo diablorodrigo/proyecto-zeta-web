@@ -3,6 +3,7 @@ import { IBM_Plex_Sans, Libre_Baskerville } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
+import { SITE_URL } from "@/lib/proyeccion/path";
 import "./globals.css";
 
 const display = Libre_Baskerville({
@@ -18,6 +19,7 @@ const sans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Zeta Finance — Asesoría financiera y de inversiones",
     template: "%s — Zeta Finance",

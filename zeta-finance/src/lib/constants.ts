@@ -1,3 +1,5 @@
+import { PROYECCION_PATH } from "@/lib/proyeccion/path";
+
 export const WHATSAPP_URL =
   process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/5493496462977";
 
@@ -26,6 +28,7 @@ export const NAV_LINKS = [
   { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
   { href: "/simulador", label: "Simulador" },
+  { href: PROYECCION_PATH, label: "Tu plata" },
   { href: "/shop", label: "Shop" },
   { href: "/guias", label: "Guías" },
   { href: "/sobre-mi", label: "Sobre mí" },
