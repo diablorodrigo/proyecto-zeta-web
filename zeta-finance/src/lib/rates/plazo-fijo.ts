@@ -1,6 +1,11 @@
 /**
- * Plazo fijo promedio (BCRA, depósitos a 30 días) vía ArgentinaDatos,
- * y tramos de Banco Macro. Portado de `api/rates.js` y `macro-vs-letra.js`.
+ * Plazo fijo y tramos de Banco Macro. Portado de `api/rates.js` y
+ * `macro-vs-letra.js`.
+ *
+ * La página de proyección no usa la serie BCRA de depósitos a 30 días:
+ * el valor mostrado es la TNA fija de `PLAZO_FIJO_FALLBACK_TNA` (promedio
+ * de bancos, clientes). `plazoFijoFromDepositos` queda como parser de esa
+ * serie, por si hace falta contrastarla, y no alimenta la pantalla.
  *
  * Esta página no resta comisiones ni impuestos: el interés del plazo fijo
  * es el bruto. `calcPlazoFijoSimple` es el interés de un solo plazo.

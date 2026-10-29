@@ -17,7 +17,6 @@ import {
   buildLecapCurve,
   mergeLecapPrices,
 } from "@/lib/rates/lecap";
-import { plazoFijoFromDepositos } from "@/lib/rates/plazo-fijo";
 import { lecapVistaFromLetter, snapshotDeRespaldo } from "@/lib/rates/snapshot";
 import type { MarketSnapshot } from "@/lib/rates/types";
 
@@ -31,12 +30,10 @@ const DATA912_NOTES_URL = "https://data912.com/live/arg_notes";
 const DATA912_BONDS_URL = "https://data912.com/live/arg_bonds";
 const ARGENTINA_DATOS_CAUCIONES_URL =
   "https://api.argentinadatos.com/v1/finanzas/cauciones/ars";
-const DEPOSITOS_30_URL =
-  "https://api.argentinadatos.com/v1/finanzas/tasas/depositos30Dias";
 const FCI_HISTORICO_URL =
   "https://api.argentinadatos.com/v1/finanzas/fci/fondos/balanz-capital-money-market-clase-a/historico";
 
-const CACHE_KEY = "proyeccion-market-v1";
+const CACHE_KEY = "proyeccion-market-v2";
 const CACHE_VIVO_MS = 30 * 60 * 1000;
 const CACHE_RESPALDO_MS = 5 * 60 * 1000;
 
@@ -155,7 +152,7 @@ export async function loadMarketRates(options?: {
   const hoy = now.toISOString().slice(0, 10);
 
   try {
-    const [bymaCaucion, argentinaCaucion, depositos, fciPayload, lecapCurve] =
+    const [bymaCaucion, argentinaCaucion, fciPayload, lecapCurve] =
       await Promise.all([
         fetchJson(fetchImpl, BYMA_CAUCIONES_URL, 5000, {
           method: "POST",
@@ -163,7 +160,6 @@ export async function loadMarketRates(options?: {
           body: "{}",
         }),
         fetchJson(fetchImpl, ARGENTINA_DATOS_CAUCIONES_URL, 3500),
-        fetchJson(fetchImpl, DEPOSITOS_30_URL, 3500),
         fetchJson(fetchImpl, FCI_HISTORICO_URL, 8000),
         loadLecapCurve(fetchImpl, now),
       ]);
@@ -197,7 +193,6 @@ export async function loadMarketRates(options?: {
       }
     }
 
-    const pf = plazoFijoFromDepositos(depositos);
     const fciRecord = asRecord(fciPayload);
     const historico = Array.isArray(fciRecord?.historico)
       ? fciRecord.historico
@@ -206,15 +201,7 @@ export async function loadMarketRates(options?: {
 
     return {
       asOf: now.toISOString(),
-      plazoFijo: pf
-        ? {
-            tna: pf.tna,
-            fuente: "ArgentinaDatos (BCRA, depósitos a 30 días)",
-            fecha: pf.fecha,
-            respaldo: false,
-            aConfirmar: false,
-          }
-        : base.plazoFijo,
+      plazoFijo: base.plazoFijo,
       moneyMarket: fci
         ? {
             tna: fci.tna,

@@ -4,6 +4,8 @@ import {
   FCI_FALLBACK,
   FCI_NOMBRE,
   PLAZO_FIJO_FALLBACK_TNA,
+  PLAZO_FIJO_FECHA,
+  PLAZO_FIJO_FUENTE,
   USD_FONDO_TNA,
 } from "@/lib/rates/fallback";
 import {
@@ -59,7 +61,10 @@ export function snapshotDeRespaldo(now = new Date()): MarketSnapshot {
     asOf: now.toISOString(),
     plazoFijo: {
       tna: PLAZO_FIJO_FALLBACK_TNA,
-      ...respaldo("Respaldo fijo", null),
+      fuente: PLAZO_FIJO_FUENTE,
+      fecha: PLAZO_FIJO_FECHA,
+      respaldo: true,
+      aConfirmar: true,
     },
     moneyMarket: {
       tna: FCI_FALLBACK.tna,

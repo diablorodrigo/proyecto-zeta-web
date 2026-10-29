@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
 import { test } from "vitest";
-import { CAUCION_FALLBACK, FCI_FALLBACK, PLAZO_FIJO_FALLBACK_TNA } from "@/lib/rates/fallback";
+import {
+  CAUCION_FALLBACK,
+  FCI_FALLBACK,
+  PLAZO_FIJO_FALLBACK_TNA,
+  PLAZO_FIJO_FECHA,
+  PLAZO_FIJO_FUENTE,
+} from "@/lib/rates/fallback";
 import { loadMarketRates, type FetchLike } from "@/lib/rates/load-market";
 
 const FRIDAY_CLOSE = new Date("2026-10-24T15:30:00.000Z");
@@ -24,7 +30,11 @@ test("si las fuentes fallan, cada instrumento queda en su respaldo fijo", async 
     throw new Error("caído");
   };
   const snapshot = await loadMarketRates({ now: FRIDAY_CLOSE, fetch: fetchImpl });
+  assert.equal(snapshot.plazoFijo.tna, 19);
   assert.equal(snapshot.plazoFijo.tna, PLAZO_FIJO_FALLBACK_TNA);
+  assert.equal(snapshot.plazoFijo.fuente, PLAZO_FIJO_FUENTE);
+  assert.equal(snapshot.plazoFijo.fecha, PLAZO_FIJO_FECHA);
+  assert.equal(snapshot.plazoFijo.aConfirmar, true);
   assert.equal(snapshot.plazoFijo.respaldo, true);
   assert.equal(snapshot.moneyMarket.tna, FCI_FALLBACK.tna);
   assert.equal(snapshot.moneyMarket.respaldo, true);
@@ -37,7 +47,7 @@ test("si las fuentes fallan, cada instrumento queda en su respaldo fijo", async 
   assert.ok(snapshot.lecaps.some((letter) => letter.ticker === "S30N6"));
 });
 
-test("con datos vivos no marca respaldo y no pide montos", async () => {
+test("la serie de depósitos a 30 días no pisa el 19% de plazo fijo", async () => {
   const snapshot = await loadMarketRates({
     now: FRIDAY_CLOSE,
     fetch: mockFetch({
@@ -45,7 +55,7 @@ test("con datos vivos no marca respaldo y no pide montos", async () => {
         { denominationCcy: "ARS", daysToMaturity: 7, trade: 0.26, tradeVolume: 10 },
       ],
       "/cauciones/ars": [],
-      depositos30Dias: [{ fecha: "2026-10-23", valor: 21.2 }],
+      depositos30Dias: [{ fecha: "2026-10-27", valor: 22.6 }],
       "/historico": {
         historico: [
           { fecha: "2026-10-15", valorCuotaparte: 12676.343 },
@@ -57,9 +67,11 @@ test("con datos vivos no marca respaldo y no pide montos", async () => {
       "/free/lebacs": [],
     }),
   });
-  assert.equal(snapshot.plazoFijo.tna, 21.2);
-  assert.equal(snapshot.plazoFijo.respaldo, false);
-  assert.equal(snapshot.plazoFijo.fecha, "2026-10-23");
+  assert.equal(snapshot.plazoFijo.tna, 19);
+  assert.equal(snapshot.plazoFijo.fuente, PLAZO_FIJO_FUENTE);
+  assert.equal(snapshot.plazoFijo.fecha, PLAZO_FIJO_FECHA);
+  assert.equal(snapshot.plazoFijo.aConfirmar, true);
+  assert.equal(snapshot.plazoFijo.respaldo, true);
   assert.equal(snapshot.moneyMarket.tna, 18.28);
   assert.equal(snapshot.moneyMarket.respaldo, false);
   assert.equal(snapshot.moneyMarket.fuente, "CNV, cuotaparte vía ArgentinaDatos");
