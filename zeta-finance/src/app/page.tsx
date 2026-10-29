@@ -13,8 +13,12 @@ export default function HomePage() {
       <HomeHero />
       <HomeServices />
       <HomeSimulatorTeaser />
-      <HomePlanillasTeaser />
-      <HomeGuiasTeaser />
+      <div className="reveal border-b border-border/70 bg-white">
+        <div className="mx-auto grid max-w-6xl items-stretch gap-5 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2">
+          <HomePlanillasTeaser />
+          <HomeGuiasTeaser />
+        </div>
+      </div>
       <HomeHowWeWork />
       <HomeFaq />
       <HomeCta />
