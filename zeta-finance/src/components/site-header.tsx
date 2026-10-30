@@ -64,13 +64,17 @@ export function SiteHeader() {
   }, []);
 
   const close = () => setOpenPath(null);
+  // En la portada, el header arranca transparente y claro sobre la foto.
+  const overHero = pathname === "/" && !scrolled && !open;
 
   return (
     <header ref={headerRef} className="sticky top-0 z-50">
       <div
         className={cn(
           "relative border-b transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300",
-          scrolled
+          overHero
+            ? "border-transparent bg-transparent text-[#fbf6ea]"
+            : scrolled
             ? "border-border/80 bg-white/92 shadow-[0_14px_40px_-28px_rgba(30,58,52,0.65)] backdrop-blur-xl"
             : "border-transparent bg-background/85 backdrop-blur-md",
         )}
@@ -108,7 +112,11 @@ export function SiteHeader() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "relative rounded-full px-2.5 py-2 text-[13px] font-medium whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary xl:px-3 xl:text-sm",
-                  active
+                  overHero
+                    ? active
+                      ? "text-white"
+                      : "text-[#efe6d2]/85 hover:bg-white/10 hover:text-white"
+                    : active
                     ? "text-foreground"
                     : "text-muted-foreground hover:bg-white/80 hover:text-foreground",
                 )}
@@ -137,7 +145,12 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-white/70 text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:hidden"
+          className={cn(
+            "inline-flex h-11 w-11 items-center justify-center rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:hidden",
+            overHero
+              ? "border-white/30 bg-white/10 text-white backdrop-blur-md"
+              : "border-border/80 bg-white/70 text-foreground",
+          )}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
           aria-controls="menu-movil"
