@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { SITE_URL } from "@/lib/proyeccion/path";
+import { HOME_DESCRIPTION, HOME_TITLE, organizationJsonLd } from "@/lib/seo";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ClickTracker } from "@/components/click-tracker";
@@ -25,18 +26,24 @@ const sans = IBM_Plex_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Zeta Finance — Asesoría financiera y de inversiones",
-    template: "%s — Zeta Finance",
+    default: HOME_TITLE,
+    template: "%s | Zeta Finance",
   },
-  description:
-    "Asesoría financiera personal e inversiones con acompañamiento cercano. Primera consulta sin coste para entender tu situación y tus objetivos.",
+  description: HOME_DESCRIPTION,
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "Zeta Finance — Asesoría financiera y de inversiones",
-    description:
-      "Ordena tus finanzas e invierte con criterio, con acompañamiento personal.",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    url: "/",
     locale: "es_AR",
     type: "website",
     siteName: "Zeta Finance",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
   },
 };
 
@@ -55,6 +62,15 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd()).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
         <a
           href="#contenido"
           className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"

@@ -21,7 +21,7 @@ export function HomeCta() {
           ¿Damos el primer paso?
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-base text-primary-foreground/80 sm:text-lg">
-          Cuéntame en qué punto estás y te digo cómo puedo ayudarte. Sin coste
+          Cuéntame en qué punto estás y te digo cómo puedo ayudarte. Sin costo
           y sin compromiso.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

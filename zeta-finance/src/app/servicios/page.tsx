@@ -3,13 +3,15 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { SERVICE_LINES } from "@/lib/constants";
+import { pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Servicios",
+export const metadata: Metadata = pageMetadata({
+  title: "Servicios de asesoría financiera",
   description:
-    "Asesoría financiera personal e inversiones y patrimonio con acompañamiento cercano.",
-};
+    "Asesoría financiera personal e inversiones y patrimonio, con acompañamiento cercano en Salta.",
+  path: "/servicios",
+});
 
 export default function ServiciosPage() {
   return (

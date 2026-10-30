@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GuideForm } from "@/components/guias/guide-form";
 import { GUIAS, getGuia } from "@/lib/guias";
+import { pageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ profesion: string }>;
@@ -21,20 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const description = `${guia.resumen} Guía gratis de Zeta Finance. Dejás tu nombre y email, y abrís el PDF.`;
 
-  return {
-    metadataBase: new URL("https://zeta-finance.vercel.app"),
+  return pageMetadata({
     title: guia.titulo,
     description,
-    alternates: { canonical: `/guias/${guia.slug}` },
-    openGraph: {
-      title: guia.titulo,
-      description,
-      url: `/guias/${guia.slug}`,
-      locale: "es_AR",
-      type: "website",
-      siteName: "Zeta Finance",
-    },
-  };
+    path: `/guias/${guia.slug}`,
+  });
 }
 
 export default async function GuiaPage({ params }: Props) {

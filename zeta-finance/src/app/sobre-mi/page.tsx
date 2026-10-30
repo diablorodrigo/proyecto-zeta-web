@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import { pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Sobre mí",
   description:
-    "Zeta Finance nace para ordenar finanzas e invertir con criterio, sin promesas imposibles.",
-};
+    "Zeta Finance, asesor financiero en Salta. Ordenamos finanzas e invertimos con criterio, sin promesas imposibles.",
+  path: "/sobre-mi",
+});
 
 const PRINCIPLES = [
   {

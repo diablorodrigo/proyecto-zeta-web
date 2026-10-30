@@ -21,7 +21,8 @@ cp .env.example .env.local
 | --- | --- |
 | `GOOGLE_SHEETS_WEBHOOK_URL` | Webhook Apps Script. Vacío = modo demo. |
 | `NEXT_PUBLIC_WHATSAPP_URL` | Link WhatsApp (default `https://wa.me/5493496462977`). |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Email público (default `zeta_finance@yahoo.com`). |
+| `NEXT_PUBLIC_SITE_URL` | URL canónica del sitio (default `https://www.zetafinance.com.ar`). La usan el sitemap, `robots.txt` y las metaetiquetas. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Email público (default `consulta@zetafinance.com.ar`). |
 | `NEXT_PUBLIC_MP_PLANILLA_PERSONALES` | Link de Mercado Pago de Finanzas personales. Si no está, se usa la constante en `src/lib/planillas.ts`. |
 | `NEXT_PUBLIC_MP_PLANILLA_INDEPENDIENTES` | Link de Mercado Pago de Ingresos para profesionales independientes. |
 | `NEXT_PUBLIC_MP_PLANILLA_COMBO` | Link de Mercado Pago del combo. |
@@ -86,14 +87,14 @@ Abrir la URL `/exec` en el navegador tiene que mostrar `{"ok":true,"service":"ze
 
 Páginas para pegar en un mensaje de Instagram (el PDF no se puede adjuntar en el DM):
 
-- https://zeta-finance.vercel.app/guias
-- https://zeta-finance.vercel.app/guias/medicos
-- https://zeta-finance.vercel.app/guias/abogados
-- https://zeta-finance.vercel.app/guias/contadores
-- https://zeta-finance.vercel.app/guias/ingenieros
-- https://zeta-finance.vercel.app/guias/rrhh
-- https://zeta-finance.vercel.app/guias/psicologos
-- https://zeta-finance.vercel.app/guias/emprendedores
+- https://www.zetafinance.com.ar/guias
+- https://www.zetafinance.com.ar/guias/medicos
+- https://www.zetafinance.com.ar/guias/abogados
+- https://www.zetafinance.com.ar/guias/contadores
+- https://www.zetafinance.com.ar/guias/ingenieros
+- https://www.zetafinance.com.ar/guias/rrhh
+- https://www.zetafinance.com.ar/guias/psicologos
+- https://www.zetafinance.com.ar/guias/emprendedores
 
 Los PDF están en `public/guias/` y el sitio los sirve en `/guias/<profesion>.pdf`. En la página, el botón para abrirlos aparece después de enviar nombre y email. El visitante elige la profesión (o entra por el link directo), completa el formulario y abre el PDF.
 
@@ -101,7 +102,7 @@ Los PDF están en `public/guias/` y el sitio los sirve en `/guias/<profesion>.pd
 
 - WhatsApp: +54 9 3496-462977 (`https://wa.me/5493496462977`)
 - Instagram: [@cristianbernaldez.ok](https://www.instagram.com/cristianbernaldez.ok)
-- Email: zeta_finance@yahoo.com
+- Email: consulta@zetafinance.com.ar
 - Ubicación: Salta, Argentina
 
 ## Licencia

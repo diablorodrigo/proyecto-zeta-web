@@ -6,7 +6,7 @@ export const WHATSAPP_URL =
 export const WHATSAPP_DISPLAY = "+54 9 3496-462977";
 
 export const CONTACT_EMAIL =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "zeta_finance@yahoo.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "consulta@zetafinance.com.ar";
 
 export const INSTAGRAM_HANDLE = "@cristianbernaldez.ok";
 

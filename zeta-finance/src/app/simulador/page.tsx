@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { RiskSimulator } from "@/components/simulador/risk-simulator";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Simulador de carteras",
   description:
-    "Elegí tu perfil de riesgo, distribuí tu capital y medí la alineación de tu cartera.",
-};
+    "Elegí tu perfil de riesgo, distribuí tu capital y medí la alineación de tu cartera con Zeta Finance.",
+  path: "/simulador",
+});
 
 export default function SimuladorPage() {
   return (
