@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useTransition } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -71,6 +72,7 @@ export function ContactForm() {
           setError(data.error ?? "No se pudo enviar el mensaje.");
           return;
         }
+        trackEvent("Contacto Enviado", { interes: String(interes) });
         setSuccess(
           data.message ??
             "Mensaje recibido. Te respondo a la brevedad.",
