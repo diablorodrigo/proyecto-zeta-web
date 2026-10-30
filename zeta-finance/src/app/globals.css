@@ -309,11 +309,18 @@
   will-change: transform;
 }
 .hero-layer {
-  inset: 0 -8% auto -8%;
-  height: 122%;
+  inset: 11% -2% auto -2%;
+  height: 100%;
 }
 .hero-img {
   object-position: 50% 0%;
+}
+.hero-cine-stage {
+  background: linear-gradient(to bottom, #2c3b2c, #1a2620 30%, #0d1512);
+}
+.hero-layer-bg {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 9%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 9%);
 }
 .hero-layer-bg {
   transform: translate3d(calc(var(--px) * -10px), calc(var(--py) * -8px), 0)
@@ -322,7 +329,7 @@
 .hero-layer-bull {
   transform-origin: 50% 78%;
   transform: translate3d(calc(var(--px) * -26px), calc(var(--py) * -16px + var(--p) * 4svh), 0)
-    scale(calc(1.04 + var(--p) * 0.42));
+    scale(calc(1.04 + var(--p) * 0.3));
 }
 .hero-title-layer {
   top: calc(65px + 3.5svh);
@@ -378,8 +385,8 @@
     height: 130svh;
   }
   .hero-layer {
-    inset: 15svh 0 auto 0;
-    height: 100svh;
+    inset: 17svh 0 auto 0;
+    height: 92svh;
   }
   .hero-layer-bg {
     -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%);
@@ -392,7 +399,10 @@
       #142019;
   }
   .hero-img {
-    object-position: 50% 0%;
+    object-position: 34% 0%;
+  }
+  .hero-layer-bull {
+    transform: translate3d(0, calc(var(--p) * 3svh), 0) scale(calc(1.02 + var(--p) * 0.22));
   }
   .hero-headline {
     font-size: clamp(2.1rem, 9.6vw, 3rem);

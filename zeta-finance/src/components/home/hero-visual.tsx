@@ -67,10 +67,10 @@ export function HeroStage({
   }, []);
 
   const common = { fill: true, priority: true } as const;
-  const bgMobile = getImageProps({ ...common, alt: ALT, src: "/assets/hero-toro-bronce-828.webp", sizes: "100vw" }).props.srcSet;
-  const bg = getImageProps({ ...common, alt: ALT, src: "/assets/hero-toro-bronce.webp", sizes: "100vw" }).props;
-  const cutMobile = getImageProps({ ...common, alt: "", src: "/assets/hero-toro-recorte-828.webp", sizes: "100vw" }).props.srcSet;
-  const cut = getImageProps({ ...common, alt: "", src: "/assets/hero-toro-recorte.webp", sizes: "100vw" }).props;
+  const bgMobile = getImageProps({ ...common, alt: ALT, src: "/assets/hero-toro-hd-movil.webp", sizes: "100vw" }).props.srcSet;
+  const bg = getImageProps({ ...common, alt: ALT, src: "/assets/hero-toro-hd.webp", sizes: "100vw" }).props;
+  const cutMobile = getImageProps({ ...common, alt: "", src: "/assets/hero-toro-hd-recorte-movil.webp", sizes: "100vw" }).props.srcSet;
+  const cut = getImageProps({ ...common, alt: "", src: "/assets/hero-toro-hd-recorte.webp", sizes: "100vw" }).props;
 
   return (
     <section ref={ref} className="hero-cine relative -mt-[65px] bg-[#0d1512]">
