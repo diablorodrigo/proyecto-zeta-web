@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { GUIAS } from "@/lib/guias";
-import { PROYECCION_PATH } from "@/lib/proyeccion/path";
+import { PROYECCION_PATH, SITE_URL } from "@/lib/proyeccion/path";
 
 const ROUTES = [
   "",
@@ -16,6 +16,6 @@ const ROUTES = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return ROUTES.map((path) => ({
-    url: `https://zeta-finance.vercel.app${path}`,
+    url: `${SITE_URL}${path}`,
   }));
 }

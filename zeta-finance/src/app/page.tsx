@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { HomeHero } from "@/components/home/hero";
+import { HOME_DESCRIPTION, HOME_TITLE, pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  path: "/",
+});
 import { HomeProyeccionTeaser } from "@/components/home/proyeccion-teaser";
 import { HomeServices } from "@/components/home/services-teaser";
 import { HomeSimulatorTeaser } from "@/components/home/simulator-teaser";

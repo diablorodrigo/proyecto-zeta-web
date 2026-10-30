@@ -1,24 +1,16 @@
 import type { Metadata } from "next";
 import { GuideList } from "@/components/guias/guide-list";
+import { pageMetadata } from "@/lib/seo";
 
 const title = "Guías gratis de finanzas por profesión";
 const description =
   "Guías PDF gratuitas de planificación financiera para médicos, abogados, contadores, ingenieros, RR.HH., psicólogos y emprendedores. Dejás tu nombre y email, y abrís la tuya.";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://zeta-finance.vercel.app"),
+export const metadata: Metadata = pageMetadata({
   title,
   description,
-  alternates: { canonical: "/guias" },
-  openGraph: {
-    title,
-    description,
-    url: "/guias",
-    locale: "es_AR",
-    type: "website",
-    siteName: "Zeta Finance",
-  },
-};
+  path: "/guias",
+});
 
 export default function GuiasPage() {
   return (

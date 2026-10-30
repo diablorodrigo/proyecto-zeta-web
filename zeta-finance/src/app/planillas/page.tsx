@@ -2,33 +2,26 @@ import type { Metadata } from "next";
 import { PlanillasView } from "@/components/planillas/planillas-view";
 import { EBOOK_INVERTIR_SIN_MIEDO } from "@/lib/ebooks";
 import { PLANILLA_COMBO, PLANILLA_PRODUCTS } from "@/lib/planillas";
+import { SITE_URL } from "@/lib/proyeccion/path";
+import { pageMetadata } from "@/lib/seo";
 
 const title = "Planillas y ebook Invertir sin miedo | Zeta Finance";
 const description =
   "Planillas de Excel y el ebook Invertir sin miedo. Pago único con Mercado Pago desde $ 6.900, o la guía en PDF por $ 14.900 con descarga inmediata en Hotmart.";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://zeta-finance.vercel.app"),
-  title: { absolute: title },
+export const metadata: Metadata = pageMetadata({
+  title,
   description,
-  alternates: { canonical: "/planillas" },
-  openGraph: {
-    title,
-    description,
-    url: "/planillas",
-    locale: "es_AR",
-    type: "website",
-    siteName: "Zeta Finance",
-    images: [
-      {
-        url: "/planillas/preview-finanzas-personales-ars-usd.png",
-        width: 1400,
-        height: 680,
-        alt: "Vista de la planilla de finanzas personales en pesos y dólares",
-      },
-    ],
-  },
-};
+  path: "/planillas",
+  images: [
+    {
+      url: "/planillas/preview-finanzas-personales-ars-usd.png",
+      width: 1400,
+      height: 680,
+      alt: "Vista de la planilla de finanzas personales en pesos y dólares",
+    },
+  ],
+});
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -42,14 +35,14 @@ const jsonLd = {
         "@type": "Product",
         name: product.name,
         description: product.subtitle,
-        image: `https://zeta-finance.vercel.app${product.image}`,
+        image: `${SITE_URL}${product.image}`,
         brand: { "@type": "Brand", name: "Zeta Finance" },
         offers: {
           "@type": "Offer",
           priceCurrency: "ARS",
           price: String(product.priceAmount),
           availability: "https://schema.org/InStock",
-          url: "https://zeta-finance.vercel.app/planillas",
+          url: `${SITE_URL}/planillas`,
         },
       },
     })),
@@ -66,7 +59,7 @@ const jsonLd = {
           priceCurrency: "ARS",
           price: String(PLANILLA_COMBO.priceAmount),
           availability: "https://schema.org/InStock",
-          url: "https://zeta-finance.vercel.app/planillas",
+          url: `${SITE_URL}/planillas`,
         },
       },
     },
@@ -77,7 +70,7 @@ const jsonLd = {
         "@type": "Product",
         name: EBOOK_INVERTIR_SIN_MIEDO.name,
         description: EBOOK_INVERTIR_SIN_MIEDO.description,
-        image: `https://zeta-finance.vercel.app${EBOOK_INVERTIR_SIN_MIEDO.image}`,
+        image: `${SITE_URL}${EBOOK_INVERTIR_SIN_MIEDO.image}`,
         brand: { "@type": "Brand", name: "Zeta Finance" },
         offers: {
           "@type": "Offer",

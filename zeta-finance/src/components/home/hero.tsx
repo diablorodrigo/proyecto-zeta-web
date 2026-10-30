@@ -61,7 +61,7 @@ export function HomeHero() {
           </Link>
         </div>
         <p className="motion-safe:animate-rise mt-4 text-xs text-[#e6dcc6]/85 [animation-delay:280ms] sm:text-sm">
-          Primera consulta sin coste · Respuesta en menos de 24 h laborables ·{" "}
+          Primera consulta sin costo · Respuesta en menos de 24 h laborables ·{" "}
           <a
             href={INSTAGRAM_URL}
             target="_blank"
