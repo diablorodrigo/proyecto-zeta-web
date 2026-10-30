@@ -296,3 +296,42 @@
     transform: none;
   }
 }
+
+/* Portada: toro de bronce con parallax liviano y zoom lento */
+.hero-bull {
+  --px: 0;
+  --py: 0;
+}
+.hero-bull-layer {
+  transform: translate3d(calc(var(--px) * -18px), calc(var(--py) * -14px), 0);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.hero-bull-veil {
+  background:
+    radial-gradient(120% 95% at 50% 45%, transparent 58%, rgba(250, 247, 240, 0.55) 100%),
+    linear-gradient(to top, rgba(250, 247, 240, 0.35), transparent 30%),
+    linear-gradient(to bottom, rgba(250, 247, 240, 0.18), transparent 22%);
+}
+@keyframes ken-burns {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(-1.2%, -1%, 0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-bull-img {
+    animation: ken-burns 22s ease-in-out infinite alternate;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bull-layer {
+    transform: none !important;
+    transition: none;
+  }
+  .hero-bull-img {
+    animation: none !important;
+  }
+}
