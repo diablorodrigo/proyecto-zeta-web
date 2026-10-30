@@ -7,6 +7,7 @@ import { Jargon } from "@/components/proyeccion/jargon";
 import { ShareBar } from "@/components/proyeccion/share-bar";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { MoneyInput, formatMiles } from "@/components/ui/money-input";
 import { whatsappLink } from "@/lib/constants";
 import {
   AVISO_SIMPLE,
@@ -153,7 +154,7 @@ export function ProyeccionApp() {
     setIngresoText(value);
     if (!montoTocado) {
       const neto = parseEntero(value);
-      setMontoText(neto == null ? "" : String(Math.round(neto * PORCENTAJE_QUIETO_DEFAULT)));
+      setMontoText(neto == null ? "" : formatMiles(String(Math.round(neto * PORCENTAJE_QUIETO_DEFAULT))));
     }
   }
 
@@ -281,24 +282,24 @@ export function ProyeccionApp() {
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <div className="space-y-1.5">
               <Label htmlFor="ingreso">Ingreso mensual neto</Label>
-              <Input
+              <MoneyInput
                 id="ingreso"
-                inputMode="numeric"
-                placeholder="Ej. 1500000"
+                aria-label="Ingreso mensual neto, en pesos"
+                placeholder="Ej. 1.500.000"
                 value={ingresoText}
-                onChange={(event) => onIngreso(event.target.value)}
+                onValueChange={(value) => onIngreso(value)}
               />
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="quieto">Monto que queda quieto</Label>
-              <Input
+              <MoneyInput
                 id="quieto"
-                inputMode="numeric"
+                aria-label="Monto que queda quieto, en pesos"
                 placeholder="El 30% del ingreso"
                 value={montoText}
-                onChange={(event) => {
+                onValueChange={(value) => {
                   setMontoTocado(true);
-                  setMontoText(event.target.value);
+                  setMontoText(value);
                 }}
               />
               <p className="text-xs text-muted-foreground">
@@ -319,12 +320,13 @@ export function ProyeccionApp() {
           {quiereUsd ? (
             <div className="mt-3 max-w-sm space-y-1.5">
               <Label htmlFor="usd">Dólares quietos</Label>
-              <Input
+              <MoneyInput
                 id="usd"
-                inputMode="numeric"
-                placeholder="Ej. 1000"
+                prefix="US$"
+                aria-label="Dólares quietos, en dólares"
+                placeholder="Ej. 1.000"
                 value={usdText}
-                onChange={(event) => setUsdText(event.target.value)}
+                onValueChange={(value) => setUsdText(value)}
               />
             </div>
           ) : null}
