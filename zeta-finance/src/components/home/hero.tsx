@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { HeroVisual } from "@/components/home/hero-visual";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -80,22 +80,14 @@ export function HomeHero() {
         <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
           <div className="relative rounded-[1.75rem] bg-white/80 p-2 shadow-[0_30px_70px_-36px_rgba(30,58,52,0.55)] ring-1 ring-foreground/10 backdrop-blur-sm">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-secondary">
-              <Image
-                src="/assets/hero-asesoria.jpg"
-                alt="Escritorio de asesoría financiera"
-                fill
-                priority
-                className="hero-photo object-cover"
-                sizes="(min-width: 1024px) 520px, 100vw"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/15 via-transparent to-white/25" />
-              <p className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur-sm">
+              <HeroVisual />
+              <p className="absolute right-3 bottom-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur-sm">
                 {LOCATION_LABEL}
               </p>
             </div>
           </div>
 
-          <div className="float-a glass-card relative z-10 mt-3 rounded-2xl px-4 py-3 lg:absolute lg:top-8 lg:left-3 lg:mt-0 lg:w-44">
+          <div className="float-a glass-card relative z-10 mt-3 rounded-2xl px-4 py-3 lg:absolute lg:-top-6 lg:-right-4 lg:mt-0 lg:w-44">
             <p className="text-[0.68rem] font-semibold tracking-[0.16em] text-primary uppercase">
               Primera consulta
             </p>
@@ -105,7 +97,7 @@ export function HomeHero() {
             <p className="text-xs text-muted-foreground">Sin compromiso</p>
           </div>
 
-          <div className="float-b glass-card relative z-10 mt-3 rounded-2xl px-4 py-3 lg:absolute lg:right-0 lg:bottom-4 lg:mt-0 lg:w-60">
+          <div className="float-b glass-card relative z-10 mt-3 rounded-2xl px-4 py-3 lg:absolute lg:-bottom-10 lg:-left-8 lg:mt-0 lg:w-60">
             <p className="text-[0.68rem] font-semibold tracking-[0.16em] text-primary uppercase">
               Simulador
             </p>
