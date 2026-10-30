@@ -4,6 +4,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { SITE_URL } from "@/lib/proyeccion/path";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ClickTracker } from "@/components/click-tracker";
 import "./globals.css";
 
 const display = Libre_Baskerville({
@@ -64,6 +67,9 @@ export default function RootLayout({
         </main>
         <SiteFooter />
         <WhatsAppFab />
+        <ClickTracker />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

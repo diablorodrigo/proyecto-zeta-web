@@ -34,6 +34,7 @@ import { PROYECCION_RATES_PATH } from "@/lib/proyeccion/path";
 import type { Fuente, MarketSnapshot } from "@/lib/rates/types";
 import { snapshotDeRespaldo } from "@/lib/rates/snapshot";
 import { cn } from "@/lib/utils";
+import { trackOncePerSession } from "@/lib/analytics";
 
 const ResultsChart = dynamic(
   () => import("@/components/proyeccion/results-chart").then((mod) => mod.ResultsChart),
@@ -255,7 +256,10 @@ export function ProyeccionApp() {
   };
 
   return (
-    <div className="bg-white text-foreground">
+    <div
+      className="bg-white text-foreground"
+      onChangeCapture={() => trackOncePerSession("Proyeccion Uso")}
+    >
       <section className="border-b border-border/70">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <p className="text-sm font-semibold text-primary">Para el público general</p>

@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import type { Guia } from "@/lib/guias";
 import { whatsappLink } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -66,6 +67,7 @@ export function GuideForm({ guia }: { guia: Guia }) {
           );
           return;
         }
+        trackEvent("Guia Formulario Enviado", { profesion: guia.slug });
         setNombreListo(nombreLimpio);
         setReady(true);
         openPdf();
@@ -94,6 +96,8 @@ export function GuideForm({ guia }: { guia: Guia }) {
         <a
           href={guia.archivo}
           download={guia.archivoNombre}
+          data-track="Guia Descarga"
+          data-track-profesion={guia.slug}
           className={cn(
             buttonVariants({ size: "lg" }),
             "mt-6 bg-primary text-primary-foreground hover:bg-primary/90",

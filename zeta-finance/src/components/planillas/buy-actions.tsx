@@ -34,6 +34,9 @@ export function BuyActions({
         target="_blank"
         rel="noopener noreferrer"
         data-checkout={ready ? "mercadopago" : "whatsapp"}
+        data-track="Compra Planilla"
+        data-track-producto={id}
+        data-track-checkout={ready ? "mercadopago" : "whatsapp"}
         title={
           ready
             ? "Pago seguro con Mercado Pago"
