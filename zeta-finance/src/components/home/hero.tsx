@@ -4,6 +4,7 @@ import { HeroStage } from "@/components/home/hero-visual";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { buttonVariants } from "@/components/ui/button";
 import {
+  CNV_MATRICULA_LABEL,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
   WHATSAPP_DISPLAY,
@@ -28,6 +29,9 @@ export function HomeHero() {
             <em className="hero-gold font-display italic">plan claro</em>{" "}
             <span className="whitespace-nowrap">y sin letra pequeña</span>
           </h1>
+          <p className="motion-safe:animate-rise mt-4 text-sm font-medium tracking-wide text-[#f3d79a] [animation-delay:120ms] [text-shadow:0_2px_16px_rgba(0,0,0,0.55)] sm:text-base">
+            Cristian Bernaldez · {CNV_MATRICULA_LABEL}
+          </p>
         </div>
       }
     >

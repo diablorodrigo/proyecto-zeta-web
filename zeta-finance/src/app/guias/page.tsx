@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GuideList } from "@/components/guias/guide-list";
+import { CNV_CREDENTIAL } from "@/lib/constants";
 import { pageMetadata } from "@/lib/seo";
 
 const title = "Guías gratis de finanzas por profesión";
@@ -27,8 +28,7 @@ export default function GuiasPage() {
             tiene su propia dirección.
           </p>
           <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-            Las escribe Cristian Bernaldez, asesor financiero matriculado CNV,
-            desde Salta.
+            Las escribe {CNV_CREDENTIAL}, desde Salta.
           </p>
         </div>
       </section>
@@ -36,8 +36,9 @@ export default function GuiasPage() {
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <GuideList />
         <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          Es material orientativo. No reemplaza una asesoría personalizada ni
-          es una recomendación de inversión. Si tu profesión no está, escribinos
+          Es material orientativo. No reemplaza una asesoría personalizada, no
+          es una recomendación de inversión ni una promesa de rentabilidad. Si
+          tu profesión no está, escribinos
           y vemos una guía para tu actividad.
         </p>
       </section>

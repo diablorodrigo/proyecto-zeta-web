@@ -91,13 +91,16 @@ export function SiteHeader() {
         >
           <Image
             src="/logo-zeta-finance.png"
-            alt=""
+            alt="Zeta Finance"
             width={40}
             height={40}
             className="h-10 w-10 rounded-full object-cover ring-1 ring-foreground/10"
             priority
           />
-          <span className="truncate font-display text-lg font-bold tracking-tight">
+          <span
+            aria-hidden="true"
+            className="truncate font-display text-lg font-bold tracking-tight"
+          >
             Zeta Finance
           </span>
         </Link>

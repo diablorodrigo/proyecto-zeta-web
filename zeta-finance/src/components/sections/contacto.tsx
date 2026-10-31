@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useTransition } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { CnvNotice } from "@/components/cnv-notice";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -89,6 +90,7 @@ export function ContactForm() {
 
   return (
     <div className="mx-auto grid max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.15fr_0.85fr]">
+      <CnvNotice className="lg:col-span-2" />
       <form
         onSubmit={onSubmit}
         className="rounded-2xl border border-border bg-card p-5 sm:p-8"

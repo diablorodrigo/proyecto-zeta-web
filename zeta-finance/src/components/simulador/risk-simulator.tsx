@@ -205,7 +205,7 @@ export function RiskSimulator() {
         <p className="mt-4 text-xs text-muted-foreground">
           Los rendimientos mostrados son referencias históricas de ejemplo.
           Esta simulación es educativa y no constituye una recomendación de
-          inversión personalizada.
+          inversión personalizada ni una promesa de rentabilidad.
         </p>
       </section>
 

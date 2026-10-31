@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GuideForm } from "@/components/guias/guide-form";
+import { CNV_CREDENTIAL } from "@/lib/constants";
 import { GUIAS, getGuia } from "@/lib/guias";
 import { pageMetadata } from "@/lib/seo";
 
@@ -68,7 +69,7 @@ export default async function GuiaPage({ params }: Props) {
               <li>La abrís en el teléfono en cuanto dejás tus datos.</li>
             </ul>
             <p className="mt-4 text-sm text-muted-foreground">
-              Cristian Bernaldez, asesor financiero matriculado CNV. Salta.
+              {CNV_CREDENTIAL}. Salta.
             </p>
           </div>
 
@@ -89,8 +90,8 @@ export default async function GuiaPage({ params }: Props) {
           </div>
 
           <p className="text-xs leading-relaxed text-muted-foreground">
-            Es material orientativo. No reemplaza una asesoría personalizada ni
-            es una recomendación de inversión.
+            Es material orientativo. No reemplaza una asesoría personalizada, no
+            es una recomendación de inversión ni una promesa de rentabilidad.
           </p>
         </aside>
       </section>

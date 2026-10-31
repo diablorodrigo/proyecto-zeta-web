@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { CnvNotice } from "@/components/cnv-notice";
 import { buttonVariants } from "@/components/ui/button";
 import { SERVICE_LINES } from "@/lib/constants";
 import { pageMetadata } from "@/lib/seo";
@@ -26,6 +27,7 @@ export default function ServiciosPage() {
           <p className="mt-4 max-w-2xl text-muted-foreground">
             Estas son las dos líneas de trabajo y lo que incluye cada una.
           </p>
+          <CnvNotice className="mt-8 max-w-3xl" />
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import { BuyActions } from "@/components/planillas/buy-actions";
 import { EbookCard } from "@/components/planillas/ebook-card";
 import { PlanillaFaq } from "@/components/planillas/planilla-faq";
 import {
+  CNV_CREDENTIAL,
   CONTACT_EMAIL,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
@@ -41,8 +42,7 @@ export function PlanillasView() {
             {PLANILLA_MP_PROTECTION}
           </p>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            Cristian Bernaldez, asesor financiero matriculado por CNV.{" "}
-            {LOCATION_LABEL}.
+            {CNV_CREDENTIAL}. {LOCATION_LABEL}.
           </p>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             También está el ebook{" "}

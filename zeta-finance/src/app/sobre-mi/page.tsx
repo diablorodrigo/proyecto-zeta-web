@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CnvNotice } from "@/components/cnv-notice";
 import { buttonVariants } from "@/components/ui/button";
 import { pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
@@ -38,6 +39,7 @@ export default function SobreMiPage() {
           <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight sm:text-4xl">
             Claridad primero. Después, la estrategia.
           </h1>
+          <CnvNotice prominent className="mt-8 max-w-3xl" />
         </div>
       </section>
 
