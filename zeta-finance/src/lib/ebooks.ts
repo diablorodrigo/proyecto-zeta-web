@@ -1,10 +1,12 @@
+import { CNV_CREDENTIAL } from "@/lib/constants";
+
 export const EBOOK_INVERTIR_SIN_MIEDO = {
   id: "ebook",
   name: "Invertir sin miedo: guía práctica desde cero",
   priceLabel: "$ 14.900",
   priceAmount: 14900,
   description:
-    "Ebook en PDF de 42 páginas. De la CNV y tu cuenta en una ALyC hasta elegir tu primer ETF: fondo de emergencia, plazo fijo, FCI, bonos, CEDEARs y ETFs, perfil de riesgo. Material educativo, sin recomendar activos específicos. Escrito por Cristian Bernaldez, asesor financiero matriculado por la CNV.",
+    `Ebook en PDF de 42 páginas. De la CNV y tu cuenta en una ALyC hasta elegir tu primer ETF: fondo de emergencia, plazo fijo, FCI, bonos, CEDEARs y ETFs, perfil de riesgo. Material educativo, sin recomendar activos específicos. Escrito por ${CNV_CREDENTIAL}.`,
   image: "/ebook/invertir-sin-miedo.png",
   imageAlt:
     "Portada del ebook Invertir sin miedo: guía práctica desde cero, de Zeta Finance.",

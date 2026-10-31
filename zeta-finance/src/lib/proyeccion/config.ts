@@ -33,7 +33,7 @@ export const INFLACION_REM = {
 };
 
 export const DISCLAIMER =
-  "Esta simulación es informativa y educativa. No es una recomendación de inversión ni una oferta. Usa criterios cuantitativos y datos públicos (BCRA, BYMA, Data912, ArgentinaDatos, CNV) con la fecha indicada; las tasas cambian y los rendimientos pasados o esperados no garantizan resultados. Hacé tu propio análisis o consultá con un asesor. Cristian Bernaldez, Zeta Finance, asesor financiero matriculado por la CNV, matrícula 2103.";
+  "Esta simulación es informativa y educativa. No es una recomendación de inversión ni una oferta, ni una promesa de rentabilidad. Usa criterios cuantitativos y datos públicos (BCRA, BYMA, Data912, ArgentinaDatos, CNV) con la fecha indicada; las tasas cambian y los rendimientos pasados o esperados no garantizan resultados. Hacé tu propio análisis o consultá con un asesor. Cristian Bernaldez, Zeta Finance, asesor financiero matriculado por la CNV, matrícula N° 2103.";
 
 export const AVISO_SIMPLE =
   "Es una guía para mirar el contexto con tus números. No es una promesa de lo que vas a ganar ni de lo que vas a perder.";

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CnvNotice } from "@/components/cnv-notice";
 import { HomeHero } from "@/components/home/hero";
 import { HOME_DESCRIPTION, HOME_TITLE, pageMetadata } from "@/lib/seo";
 
@@ -20,6 +21,11 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
+      <section className="border-b border-border/70 bg-background">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+          <CnvNotice />
+        </div>
+      </section>
       <HomeProyeccionTeaser />
       <HomeServices />
       <HomeSimulatorTeaser />

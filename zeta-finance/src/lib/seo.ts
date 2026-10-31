@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import {
+  CNV_CREDENTIAL,
   CONTACT_EMAIL,
   INSTAGRAM_URL,
   WHATSAPP_DISPLAY,
@@ -91,6 +92,6 @@ export function organizationJsonLd() {
       value: "2103",
     },
     description:
-      "Asesoría financiera personal e inversiones en Salta, Argentina. Cristian Bernaldez, asesor financiero matriculado por la CNV, matrícula 2103.",
+      `Asesoría financiera personal e inversiones en Salta, Argentina. ${CNV_CREDENTIAL}.`,
   };
 }

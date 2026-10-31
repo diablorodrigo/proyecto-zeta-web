@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import {
+  CNV_CREDENTIAL,
   CONTACT_EMAIL,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
   LOCATION_LABEL,
+  SITE_DISCLAIMER,
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
 } from "@/lib/constants";
@@ -36,12 +38,14 @@ export function SiteFooter() {
           >
             <Image
               src="/logo-zeta-finance.png"
-              alt=""
+              alt="Zeta Finance"
               width={40}
               height={40}
               className="h-10 w-10 rounded-full object-cover ring-1 ring-foreground/10"
             />
-            <span className="font-display text-xl font-bold">Zeta Finance</span>
+            <span aria-hidden="true" className="font-display text-xl font-bold">
+              Zeta Finance
+            </span>
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             Asesoría financiera y de inversiones para personas que quieren
@@ -117,9 +121,8 @@ export function SiteFooter() {
       <div className="border-t border-border/70 bg-background/80">
         <div className="mx-auto max-w-6xl px-4 py-5 pb-24 sm:px-6 sm:pb-5">
           <p className="max-w-3xl text-xs leading-relaxed text-muted-foreground">
-            © {new Date().getFullYear()} Zeta Finance. La información de esta web
-            es orientativa y no constituye una recomendación de inversión
-            personalizada.
+            © {new Date().getFullYear()} Zeta Finance. {CNV_CREDENTIAL}.{" "}
+            {SITE_DISCLAIMER}
           </p>
         </div>
       </div>

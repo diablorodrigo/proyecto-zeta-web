@@ -14,6 +14,22 @@ export const INSTAGRAM_URL = "https://www.instagram.com/cristianbernaldez.ok";
 
 export const LOCATION_LABEL = "Salta, Argentina";
 
+/** Cargo ya usado en el sitio: asesor financiero matriculado por la CNV. */
+export const ADVISOR_NAME = "Cristian Bernaldez";
+
+export const CNV_MATRICULA = "2103";
+
+export const CNV_MATRICULA_LABEL = `Matrícula CNV N° ${CNV_MATRICULA}`;
+
+export const CNV_CREDENTIAL = `${ADVISOR_NAME}, asesor financiero matriculado por la CNV, matrícula N° ${CNV_MATRICULA}`;
+
+/**
+ * Aviso del pie. Conserva "orientativa" y "recomendación de inversión
+ * personalizada", y suma que no hay promesa de rentabilidad.
+ */
+export const SITE_DISCLAIMER =
+  "La información de esta web es orientativa y no constituye una recomendación de inversión personalizada ni una promesa de rentabilidad.";
+
 export function whatsappLink(message?: string) {
   try {
     const url = new URL(WHATSAPP_URL);
