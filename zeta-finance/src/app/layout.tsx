@@ -77,11 +77,13 @@ export default function RootLayout({
         >
           Saltar al contenido
         </a>
-        <SiteHeader />
-        <main id="contenido" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        <div id="scroll-root" className="flex flex-1 flex-col">
+          <SiteHeader />
+          <main id="contenido" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+        </div>
         <WhatsAppFab />
         <ClickTracker />
         <Analytics />

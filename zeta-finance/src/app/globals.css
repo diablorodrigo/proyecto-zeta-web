@@ -427,6 +427,28 @@
     transform-origin: 50% 70%;
   }
 }
+/* Mobile: el botón de WhatsApp ocupa una franja y el contenido scrollea arriba. */
+@media (max-width: 639px) {
+  :root {
+    --wa-strip: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  }
+  html.h-full,
+  body {
+    height: 100svh;
+    overflow: hidden;
+  }
+  #scroll-root {
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  #scroll-root::-webkit-scrollbar {
+    display: none;
+  }
+  .hero-cine-stage {
+    height: calc(100svh - var(--wa-strip));
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .hero-cine {
     height: 100svh;
