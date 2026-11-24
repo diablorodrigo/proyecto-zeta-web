@@ -3,8 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   async redirects() {
-    // Solo el host viejo. Apex → www y http → https ya los resuelve Vercel
-    // con un 308 antes de llegar a Next; repetirlos acá puede hacer un bucle.
+    // Apex → www y http → https ya los resuelve Vercel con un 308 antes de
+    // llegar a Next (http se queda en el mismo host y el apex pasa a www en
+    // el salto siguiente). Repetirlos acá puede hacer un bucle.
     return [
       {
         source: "/:path*",
@@ -12,13 +13,10 @@ const nextConfig: NextConfig = {
         destination: "https://www.zetafinance.com.ar/:path*",
         permanent: true,
       },
-    ];
-  },
-  async rewrites() {
-    return [
       {
         source: "/shop",
         destination: "/planillas",
+        permanent: true,
       },
     ];
   },
