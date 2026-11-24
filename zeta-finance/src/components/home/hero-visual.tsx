@@ -2,6 +2,7 @@
 
 import { getImageProps } from "next/image";
 import { useEffect, useRef, type ReactNode } from "react";
+import { getScrollRoot } from "@/lib/scroll-root";
 
 const ALT =
   "Toro de bronce de Wall Street entre rascacielos, con cielo dorado y verde";
@@ -31,7 +32,9 @@ export function HeroStage({
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         const r = el.getBoundingClientRect();
-        const range = Math.max(1, r.height - window.innerHeight);
+        const scroller = getScrollRoot();
+        const viewH = scroller?.clientHeight ?? window.innerHeight;
+        const range = Math.max(1, r.height - viewH);
         const p = Math.min(1, Math.max(0, -r.top / range));
         el.style.setProperty("--p", p.toFixed(4));
         el.style.setProperty("--px", px.toFixed(3));
@@ -51,7 +54,9 @@ export function HeroStage({
       apply();
     };
     apply();
-    window.addEventListener("scroll", apply, { passive: true });
+    const scroller = getScrollRoot();
+    const scrollTarget: HTMLElement | Window = scroller ?? window;
+    scrollTarget.addEventListener("scroll", apply, { passive: true });
     window.addEventListener("resize", apply);
     if (fine) {
       window.addEventListener("pointermove", onMove, { passive: true });
@@ -59,7 +64,7 @@ export function HeroStage({
     }
     return () => {
       cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", apply);
+      scrollTarget.removeEventListener("scroll", apply);
       window.removeEventListener("resize", apply);
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerleave", onLeave);

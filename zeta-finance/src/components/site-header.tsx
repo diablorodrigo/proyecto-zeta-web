@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { NAV_LINKS } from "@/lib/constants";
+import { getScrollRoot } from "@/lib/scroll-root";
 import { cn } from "@/lib/utils";
 
 function isActive(href: string, pathname: string) {
@@ -43,22 +44,27 @@ export function SiteHeader() {
     const onScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const y = window.scrollY;
+        const scroller = getScrollRoot();
+        const y = scroller ? scroller.scrollTop : window.scrollY;
         const nextScrolled = y > 10;
         if (nextScrolled !== lastScrolled) {
           lastScrolled = nextScrolled;
           setScrolled(nextScrolled);
         }
-        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const max = scroller
+          ? scroller.scrollHeight - scroller.clientHeight
+          : document.documentElement.scrollHeight - window.innerHeight;
         const progress = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
         headerRef.current?.style.setProperty("--scroll-progress", String(progress));
       });
     };
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const scroller = getScrollRoot();
+    const target: HTMLElement | Window = scroller ?? window;
+    target.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
+      target.removeEventListener("scroll", onScroll);
     };
   }, []);
 

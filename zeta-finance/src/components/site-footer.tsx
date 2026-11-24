@@ -119,7 +119,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-border/70 bg-background/80">
-        <div className="mx-auto max-w-6xl px-4 py-5 pb-24 sm:px-6 sm:pb-5">
+        <div className="mx-auto max-w-6xl px-4 py-5 sm:px-6">
           <p className="max-w-3xl text-xs leading-relaxed text-muted-foreground">
             © {new Date().getFullYear()} Zeta Finance. {CNV_CREDENTIAL}.{" "}
             {SITE_DISCLAIMER}
