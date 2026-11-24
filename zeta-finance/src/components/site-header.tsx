@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 
 function isActive(href: string, pathname: string) {
   if (href === "/") return pathname === "/";
-  if (href === "/shop" && pathname.startsWith("/planillas")) return true;
   return pathname.startsWith(href);
 }
 

@@ -18,7 +18,7 @@ const FOOTER_LINKS = [
   { href: "/servicios", label: "Servicios" },
   { href: "/simulador", label: "Simulador" },
   { href: PROYECCION_PATH, label: "Tu plata quieta" },
-  { href: "/shop", label: "Shop" },
+  { href: "/planillas", label: "Planillas" },
   { href: "/guias", label: "Guías gratis" },
   { href: "/sobre-mi", label: "Sobre mí" },
   { href: "/contacto", label: "Contacto" },
